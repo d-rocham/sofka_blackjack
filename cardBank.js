@@ -5,7 +5,7 @@ require("./card")();
 const cardBank = (cards) => {
   const CARDS = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J"];
 
-  const createDeck = () => {
+  const cardsDeck = (() => {
     let deck = [];
 
     // Acount for a a standard, 52-card deck
@@ -14,20 +14,20 @@ const cardBank = (cards) => {
     }
 
     return deck;
-  };
+  })();
 
   const selectRandomCard = () => {
-    const randomIndex = Math.floor(Math.random() * bankCards.length);
-    const randomCard = bankCards(randomIndex);
+    let randomIndex = Math.floor(Math.random() * cardsDeck.length);
+    let randomCard = cardsDeck[randomIndex];
 
     // Select a random card & remove it from the deck.
-    randomCard = bankCards.splice(randomIndex, 1);
+    randomCard = cardsDeck.splice(randomIndex, 1);
 
     return randomCard;
   };
 
   return {
-    cardsDeck: createDeck(),
+    cardsDeck,
     selectRandomCard,
   };
 };
