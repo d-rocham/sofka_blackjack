@@ -13,7 +13,7 @@ const cardBank = () => {
 		const deck = [];
 
 		for (const suit of SUITS) {
-			deck.push(CARDS.map((card) => generateCard(card, suit)));
+			deck.push(...CARDS.map((card) => generateCard(card, suit)));
 		}
 
 		return deck;
@@ -24,7 +24,7 @@ const cardBank = () => {
 		let randomCard = cardsDeck[randomIndex];
 
 		// Select a random card & remove it from the deck.
-		randomCard = cardsDeck.splice(randomIndex, 1);
+		[randomCard] = cardsDeck.splice(randomIndex, 1);
 
 		return randomCard;
 	};

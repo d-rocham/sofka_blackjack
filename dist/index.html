@@ -10,7 +10,22 @@
 		<div class="main-page container">
 			<h1 class="page-title">Play blackjack now!</h1>
 			<button class="button" id="new-game-button">New game</button>
-			<div class="board-container"></div>
+			<div class="board-container hidden">
+				<div class="player-info-container">
+					<h2 class="player-name">Dealer:</h2>
+					<div class="cards-container">
+						<p id="dealer-cards"></p>
+					</div>
+					<p class="hand-sum"></p>
+				</div>
+				<div class="player-info-container">
+					<h2 class="player-name">You:</h2>
+					<div class="cards-container">
+						<p id="player-cards"></p>
+					</div>
+					<p class="hand-sum"></p>
+				</div>
+			</div>
 		</div>
 		<script src="main.js"></script>
 	</body>

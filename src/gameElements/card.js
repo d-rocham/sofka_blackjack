@@ -16,6 +16,8 @@ const generateCard = (cardName, cardSuit) => {
 		return 10;
 	};
 
+	const printCard = () => `(${cardSuit}:${cardName})`;
+
 	return {
 		cardName,
 		cardSuit,
@@ -23,6 +25,7 @@ const generateCard = (cardName, cardSuit) => {
 			? getCardValue(cardName)
 			: cardName,
 		cardMonetaryValue: typeof (cardName === "string") ? 500 : 100,
+		printCard,
 	};
 };
 
