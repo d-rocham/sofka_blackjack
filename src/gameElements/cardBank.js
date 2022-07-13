@@ -4,10 +4,15 @@ require("./card")();
 
 const cardBank = () => {
 	const CARDS = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J"];
+	const SUITS = ["♣", "♦", "♥", "♠"];
 
 	// Immediately Invoked Function Expression. Only one deck is required
 	const cardsDeck = (() => {
-		let deck = CARDS.map((card) => generateCard(card));
+		let deck = [];
+
+		for (let suit of SUITS) {
+			deck.push(CARDS.map((card) => generateCard(card)));
+		}
 
 		return deck;
 	})();
