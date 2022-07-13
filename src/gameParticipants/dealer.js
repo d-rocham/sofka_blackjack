@@ -1,9 +1,7 @@
 const dealer = () => {
-  let dealerCards = [];
+	let dealerCards = [];
 
-  // TODO: create function to handle dealer moves, since he has specific moves different from regular player
+	// TODO: create function to handle dealer moves, since he has specific moves different from regular player
 
-  return { dealerCards };
+	return { dealerCards };
 };
-
-module.exports = dealer;

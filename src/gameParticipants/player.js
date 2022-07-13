@@ -1,5 +1,3 @@
-const getHandValue = require("./utils");
-
 const player = () => {
 	let playerCards = [];
 
@@ -20,5 +18,3 @@ const player = () => {
 		playerCards,
 	};
 };
-
-module.exports = player;

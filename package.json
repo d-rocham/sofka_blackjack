@@ -1,8 +1,10 @@
 {
   "name": "blackjack",
   "version": "1.0.0",
-  "description": "Blackjack game to review Vanilla JS. SofkaU homework.",
+  "description": "Blackjack game to review JS. SofkaU homework.",
   "private": true,
+
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/d-rocham/sofka_blackjack.git"
   },
-  "author": "Daniel Rocha",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/d-rocham/sofka_blackjack/issues"

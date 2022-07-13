@@ -1,6 +1,4 @@
-const generateCard = require("./card");
-
-require("./card")();
+import generateCard from "./card";
 
 const cardBank = () => {
 	const CARDS = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J"];
@@ -32,5 +30,3 @@ const cardBank = () => {
 		selectRandomCard,
 	};
 };
-
-module.exports = cardBank;

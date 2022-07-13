@@ -1,5 +1,12 @@
 /* eslint no-constant-condition: 0 */
 
+/**
+ *
+ *
+ * @param {string} cardName
+ * @param {string} cardSuit
+ * @returns {object} a card object.
+ */
 const generateCard = (cardName, cardSuit) => {
 	const getCardValue = (card) => {
 		if (card === "A") {
@@ -19,4 +26,4 @@ const generateCard = (cardName, cardSuit) => {
 	};
 };
 
-module.exports = generateCard;
+export default generateCard;
