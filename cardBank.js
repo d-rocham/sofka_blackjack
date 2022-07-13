@@ -7,8 +7,7 @@ const cardBank = (cards) => {
 
   // Immediately Invoked Function Expression. Only one deck is required
   const cardsDeck = (() => {
-    let deck = [];
-    CARDS.map((card) => deck.push(generateCard(card)));
+    let deck = CARDS.map((card) => generateCard(card));
 
     return deck;
   })();

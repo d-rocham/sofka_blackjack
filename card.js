@@ -7,6 +7,8 @@ const generateCard = (cardName) => {
     return 10;
   };
 
+  console.log(`${cardName} is ${typeof cardName}`);
+
   return {
     cardName: cardName,
     cardValue: typeof (cardName === "string")
