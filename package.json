@@ -1,0 +1,26 @@
+{
+  "name": "blackjack",
+  "version": "1.0.0",
+  "description": "Blackjack game to review Vanilla JS. SofkaU homework.",
+  "main": "gameController.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d-rocham/sofka_blackjack.git"
+  },
+  "author": "Daniel Rocha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d-rocham/sofka_blackjack/issues"
+  },
+  "homepage": "https://github.com/d-rocham/sofka_blackjack#readme",
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.7.1"
+  }
+}

@@ -3,3 +3,5 @@ const getHandValue = (cards) => {
     (previousValue, currentValue) => previousValue + currentValue
   );
 };
+
+module.exports = getHandValue;
