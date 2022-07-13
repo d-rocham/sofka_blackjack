@@ -15,9 +15,11 @@ const gameController = () => {
 	const playerHitButton = document.querySelector("#hit-button");
 	const playerStayButton = document.querySelector("#stay-button");
 
-	playerHitButton.addEventListener("click", () => sessionPlayer.hit());
+	playerHitButton.addEventListener("click", () =>
+		sessionPlayer.hit(sessionDeck)
+	);
 	playerStayButton.addEventListener("click", () =>
-		sessionDealer.dealerTurn()
+		sessionDealer.dealerTurn(sessionDeck)
 	);
 
 	// Gameplay loop
