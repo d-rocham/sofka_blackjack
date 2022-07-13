@@ -11,6 +11,16 @@ const gameController = () => {
 
 	renderCards("#dealer-cards", sessionDealer.dealerCards);
 	renderCards("#player-cards", sessionPlayer.playerCards);
+
+	const playerHitButton = document.querySelector("#hit-button");
+	const playerStayButton = document.querySelector("#stay-button");
+
+	playerHitButton.addEventListener("click", () => sessionPlayer.hit());
+	playerStayButton.addEventListener("click", () =>
+		sessionDealer.dealerTurn()
+	);
+
+	// Gameplay loop
 };
 
 export default gameController;

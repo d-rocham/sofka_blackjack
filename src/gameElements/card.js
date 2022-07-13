@@ -10,7 +10,7 @@
 const generateCard = (cardName, cardSuit) => {
 	const getCardValue = (card) => {
 		if (card === "A") {
-			return undefined;
+			return 11;
 		}
 
 		return 10;
