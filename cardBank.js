@@ -5,6 +5,7 @@ require("./card")();
 const cardBank = (cards) => {
   const CARDS = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J"];
 
+  // Immediately Invoked Function Expression. Only one deck is required
   const cardsDeck = (() => {
     let deck = [];
 
