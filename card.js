@@ -1,7 +1,18 @@
-const generateCard = (cardName, cardValue) => {
+const generateCard = (cardName) => {
+  const getCardValue = (card) => {
+    if (card === "A") {
+      return undefined;
+    }
+
+    return 10;
+  };
+
   return {
     cardName: cardName,
-    cardValue: cardValue,
-    isVisible: false,
+    cardValue: typeof (cardName === "string")
+      ? getCardValue(cardName)
+      : cardName,
   };
 };
+
+module.exports = generateCard;
