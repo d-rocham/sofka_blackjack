@@ -1,22 +1,26 @@
 import generateCard from "./card";
 
+/**
+ * Factory function to build a cardBank object
+ * @returns {object} cardBank object.
+ */
 const cardBank = () => {
 	const CARDS = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "K", "Q", "J"];
 	const SUITS = ["♣", "♦", "♥", "♠"];
 
-	// Immediately Invoked Function Expression. Only one deck is required
+	// IIFE to generate a carDeck. Only one is required.
 	const cardsDeck = (() => {
-		let deck = [];
+		const deck = [];
 
-		for (let suit of SUITS) {
-			deck.push(CARDS.map((card) => generateCard(card)));
+		for (const suit of SUITS) {
+			deck.push(CARDS.map((card) => generateCard(card, suit)));
 		}
 
 		return deck;
 	})();
 
 	const selectRandomCard = () => {
-		let randomIndex = Math.floor(Math.random() * cardsDeck.length);
+		const randomIndex = Math.floor(Math.random() * cardsDeck.length);
 		let randomCard = cardsDeck[randomIndex];
 
 		// Select a random card & remove it from the deck.
@@ -30,3 +34,5 @@ const cardBank = () => {
 		selectRandomCard,
 	};
 };
+
+export default cardBank;

@@ -1,7 +1,7 @@
 /* eslint no-constant-condition: 0 */
 
 /**
- *
+ * Factory function to build a card object
  *
  * @param {string} cardName
  * @param {string} cardSuit
