@@ -6,4 +6,9 @@ const player = () => {
       (previousValue, currentValue) => previousValue + currentValue
     );
   };
+
+  return {
+    playerCards,
+    getHandValue,
+  };
 };
