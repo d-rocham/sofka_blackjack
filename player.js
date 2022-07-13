@@ -1,5 +1,5 @@
 const player = () => {
-  const playerCards = [];
+  let playerCards = [];
 
   const getHandValue = () => {
     return playerCards.reduce(

@@ -1,0 +1,3 @@
+const dealer = () => {
+  let dealerCards = [];
+};
