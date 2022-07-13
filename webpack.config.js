@@ -14,5 +14,10 @@ module: {
       },
     ],
   },
-
+devServer: {
+    static: './dist',
+  },
+optimization: {
+    runtimeChunk: 'single',
+  },
 };
