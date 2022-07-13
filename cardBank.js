@@ -8,11 +8,7 @@ const cardBank = (cards) => {
   // Immediately Invoked Function Expression. Only one deck is required
   const cardsDeck = (() => {
     let deck = [];
-
-    // Acount for a a standard, 52-card deck
-    for (let currentSet = 0; currentSet < 5; currentSet++) {
-      deck = CARDS.map((card) => generateCard(card));
-    }
+    CARDS.map((card) => deck.push(generateCard(card)));
 
     return deck;
   })();

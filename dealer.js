@@ -1,12 +1,9 @@
 const dealer = () => {
   let dealerCards = [];
 
-  // TODO: extrat this function
-  const getHandValue = () => {
-    return playerCards.reduce(
-      (previousValue, currentValue) => previousValue + currentValue
-    );
-  };
+  // TODO: create function to handle dealer moves, since he has specific moves different from regular player
 
-  return { dealerCards, getHandValue };
+  return { dealerCards };
 };
+
+module.exports = dealer;
