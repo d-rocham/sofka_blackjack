@@ -1,7 +1,7 @@
-const gameController = () => {
-	const sessionDeck = cardBank();
+import startGame from "./startGame";
 
-	const { sessionPlayer, sessionDealer } = startGame(sessionDeck);
+const gameController = () => {
+	const { sessionPlayer, sessionDealer, sessionDeck } = startGame();
 };
 
-gameController();
+export default gameController;

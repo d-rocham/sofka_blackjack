@@ -1,11 +1,16 @@
-const startGame = (gameDeck) => {
+import { player, dealer } from "../gameParticipants/gameParticipants";
+import { cardBank } from "../gameElements/gameElements";
+
+const startGame = () => {
+	const sessionDeck = cardBank();
+
 	const sessionPlayer = player();
 	const sessionDealer = dealer();
 
-	// Assign 2 random cards each
-	for (let requiredCards = 0; requiredCards < 2; requiredCards++) {
-		const newPlayerCard = gameDeck.selectRandomCard();
-		const newDealerCard = gameDeck.selectRandomCard();
+	// Assign the first 2 random for each participant
+	for (let requiredCards = 0; requiredCards < 2; requiredCards += 1) {
+		const newPlayerCard = sessionDeck.selectRandomCard();
+		const newDealerCard = sessionDeck.selectRandomCard();
 
 		sessionPlayer.playerCards.push(newPlayerCard);
 		sessionDealer.dealerCards.push(newDealerCard);
@@ -14,5 +19,8 @@ const startGame = (gameDeck) => {
 	return {
 		sessionPlayer,
 		sessionDealer,
+		sessionDeck,
 	};
 };
+
+export default startGame;
