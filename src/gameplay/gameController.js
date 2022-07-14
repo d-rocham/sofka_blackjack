@@ -13,8 +13,6 @@ const gameController = () => {
 	renderParticipantInfo(sessionPlayer);
 	renderParticipantInfo(sessionDealer);
 
-	// TODO: render handCount for each participant
-
 	const gameAfterFirstDeal = checkGameStatus(
 		sessionPlayer.cards,
 		sessionDealer.cards,
