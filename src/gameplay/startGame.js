@@ -2,12 +2,13 @@
 
 import { player, dealer } from "../gameParticipants/gameParticipants";
 import { cardBank } from "../gameElements/gameElements";
-import { toggleComponentVisibility } from "../renderGame/renderGame";
 
 const startGame = () => {
-	// Prior to start a game, make sure that .game-results is hidden
+	// Prior to start a game, make sure that .game-results displays nothing
 
-	toggleComponentVisibility(document.querySelector(".game-results"));
+	const gameResults = document.querySelector(".game-results");
+
+	gameResults.innerHTML = "";
 
 	const sessionDeck = cardBank();
 

@@ -1,7 +1,4 @@
-import {
-	renderGameResults,
-	toggleComponentVisibility,
-} from "../renderGame/renderGame";
+import { renderGameResults } from "../renderGame/renderGame";
 
 /**
  * Finishes the game by showing a summary
@@ -19,7 +16,7 @@ const finishGame = (winner) => {
 
 	// Disable buttons
 	const gameButtons = document.querySelector(".player-buttons-container");
-	toggleComponentVisibility(gameButtons);
+	gameButtons.classList.remove("hidden");
 
 	// Since the disabled buttons are just hidden, but not removed from the DOM,
 	// there's no need to call element.removeEventListener();
