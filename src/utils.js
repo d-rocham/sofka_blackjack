@@ -11,13 +11,37 @@ const getHandValue = (cards) => {
 const formatCardHand = (cards) =>
 	"".concat(...cards.map((card) => card.printCard()));
 
-const checkGameStatus = (playerHand, dealerHand) => {
-	// TODO: bolierplate temporary code. To implement
+const checkGameStatus = (playerHand, dealerHand, isFinished) => {
+	const checkResult = {
+		isFinished,
+		winner: null,
+	};
 
-	const isFinished = true;
-	const winner = "player";
+	const playerHandValue = getHandValue(playerHand);
+	const dealerHandValue = getHandValue(dealerHand);
 
-	return { isFinished, winner };
+	if (checkResult.isFinished) {
+		checkResult.winner =
+			playerHandValue > dealerHandValue ? "player" : "dealer";
+
+		return checkResult;
+	}
+
+	if (playerHandValue === 21 || dealerHandValue > 21) {
+		checkResult.isFinished = true;
+		checkResult.winner = "player";
+
+		return checkResult;
+	}
+
+	if (dealerHandValue === 21 || playerHandValue > 21) {
+		checkResult.isFinished = true;
+		checkResult.winner = "dealer";
+
+		return checkResult;
+	}
+
+	return checkResult;
 };
 
-export { getHandValue, formatCardHand };
+export { getHandValue, formatCardHand, checkGameStatus };

@@ -1,10 +1,10 @@
 import { renderCards } from "../renderGame/renderGame";
-import { getHandValue } from "../utils";
+import { checkGameStatus, getHandValue } from "../utils";
 
 const dealer = () => {
 	const dealerCards = [];
 
-	const dealerTurn = (sessionDeck) => {
+	const dealerTurn = (sessionDeck, playerHand) => {
 		let currentHandValue = getHandValue(dealerCards);
 
 		while (currentHandValue < 17) {
@@ -15,17 +15,11 @@ const dealer = () => {
 			renderCards("#dealer-cards", dealerCards);
 		}
 
-		// TODO: move checks below to checkGameStatus. Add playerHand as parameter to this function
+		// Once dealer hits 17 or more, game is finished and hands must be reviewed
 
-		if (currentHandValue === 21) {
-			// Call finishGame(dealerWon)
-		}
+		const gameStatus = checkGameStatus(playerHand, dealerCards, true);
 
-		if (currentHandValue > 21) {
-			// Call finishGame(dealerLost)
-		}
-
-		// Check who has the highest score between dealer & player
+		// TODO: call finishGame.
 	};
 
 	return { dealerCards, dealerTurn };

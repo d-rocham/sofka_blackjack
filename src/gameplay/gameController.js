@@ -1,5 +1,6 @@
 import { startGame, finishGame } from "./gameplay";
 import { renderBoard, renderCards } from "../renderGame/renderGame";
+import { checkGameStatus } from "../utils";
 
 const gameController = () => {
 	// Initialize game data structures
@@ -14,19 +15,27 @@ const gameController = () => {
 
 	// TODO: render handCount for each participant
 
-	// TODO: Game can finish with the first draw. Invoke checkGameStatus first
+	const gameAfterFirstDeal = checkGameStatus(
+		sessionPlayer.playerCards,
+		sessionDealer.dealerCards,
+		false
+	);
+
+	if (gameAfterFirstDeal.isFinished) {
+		// call finish game
+
+		return;
+	}
 
 	const playerHitButton = document.querySelector("#hit-button");
 	const playerStayButton = document.querySelector("#stay-button");
 
 	playerHitButton.addEventListener("click", () =>
-		sessionPlayer.hit(sessionDeck)
+		sessionPlayer.hit(sessionDeck, sessionDealer.dealerCards)
 	);
 	playerStayButton.addEventListener("click", () =>
 		sessionDealer.dealerTurn(sessionDeck)
 	);
-
-	// Gameplay loop
 };
 
 export default gameController;
