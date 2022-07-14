@@ -1,5 +1,11 @@
 const getHandValue = (cards) => {
-	cards.reduce((previousValue, currentValue) => previousValue + currentValue);
+	let handValue = 0;
+
+	for (const card of cards) {
+		handValue += card.cardValue;
+	}
+
+	return handValue;
 };
 
 const formatCardHand = (cards) =>
