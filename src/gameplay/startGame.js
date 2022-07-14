@@ -10,6 +10,11 @@ const startGame = () => {
 
 	gameResults.innerHTML = "";
 
+	// Enable player buttons
+	const gameButtons = document.querySelector(".player-buttons-container");
+	gameButtons.classList.remove("hidden");
+
+	// Initialize details
 	const sessionDeck = cardBank();
 
 	const sessionPlayer = player();

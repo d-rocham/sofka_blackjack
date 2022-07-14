@@ -16,10 +16,7 @@ const finishGame = (winner) => {
 
 	// Disable buttons
 	const gameButtons = document.querySelector(".player-buttons-container");
-	gameButtons.classList.remove("hidden");
-
-	// Since the disabled buttons are just hidden, but not removed from the DOM,
-	// there's no need to call element.removeEventListener();
+	gameButtons.classList.add("hidden");
 };
 
 export default finishGame;
