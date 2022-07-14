@@ -8,12 +8,24 @@
  * @returns {object} a card object.
  */
 const generateCard = (cardName, cardSuit) => {
-	const getCardValue = (card) => {
-		if (card === "A") {
-			return 11;
+	const getCardValue = () => {
+		if (typeof cardName === "string") {
+			if (cardName === "A") {
+				return 11;
+			}
+
+			return 10;
 		}
 
-		return 10;
+		return cardName;
+	};
+
+	const getMonetaryValue = () => {
+		if (typeof cardName === "string") {
+			return 500;
+		}
+
+		return 100;
 	};
 
 	const printCard = () => `(${cardSuit}:${cardName})`;
@@ -21,10 +33,8 @@ const generateCard = (cardName, cardSuit) => {
 	return {
 		cardName,
 		cardSuit,
-		cardValue: typeof (cardName === "string")
-			? getCardValue(cardName)
-			: cardName,
-		cardMonetaryValue: typeof (cardName === "string") ? 500 : 100,
+		cardValue: getCardValue(),
+		cardMonetaryValue: getMonetaryValue,
 		printCard,
 	};
 };
