@@ -1,4 +1,7 @@
-import { renderGameResults } from "../renderGame/renderGame";
+import {
+	renderGameResults,
+	toggleComponentVisibility,
+} from "../renderGame/renderGame";
 
 const finishGame = (winner) => {
 	const endMessage =
@@ -7,6 +10,10 @@ const finishGame = (winner) => {
 			: "Too bad. YOU LOST :(";
 
 	renderGameResults(endMessage);
+
+	const gameButtons = document.querySelector(".player-buttons-container");
+
+	toggleComponentVisibility(gameButtons);
 };
 
 export default finishGame;

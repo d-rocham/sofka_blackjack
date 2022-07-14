@@ -1,6 +1,8 @@
+import toggleComponentVisibility from "./toggleComponentVisibility";
+
 const renderBoard = () => {
 	const gameBoard = document.querySelector(".board-container");
-	gameBoard.classList.remove("hidden");
+	toggleComponentVisibility(gameBoard);
 };
 
 export default renderBoard;

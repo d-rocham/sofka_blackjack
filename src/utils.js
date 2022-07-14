@@ -20,9 +20,6 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	const playerHandValue = getHandValue(playerHand);
 	const dealerHandValue = getHandValue(dealerHand);
 
-	console.log(`playerHandValue: ${playerHandValue}`);
-	console.log(`dealerHandValue: ${dealerHandValue}`);
-
 	// This condition is called only when the dealer's turn is over
 	if (checkResult.isFinished) {
 		if (playerHandValue > 21) {

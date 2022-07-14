@@ -1,7 +1,9 @@
+import toggleComponentVisibility from "./toggleComponentVisibility";
+
 const renderGameResults = (gameResults) => {
 	const resultsDisplay = document.querySelector(".game-results");
 
-	resultsDisplay.classList.remove("hidden");
+	toggleComponentVisibility(resultsDisplay);
 
 	resultsDisplay.innerHTML = gameResults;
 };
