@@ -1,3 +1,5 @@
+/* eslint import/no-cycle: [0] */
+
 import { player, dealer } from "../gameParticipants/gameParticipants";
 import { cardBank } from "../gameElements/gameElements";
 
@@ -12,8 +14,8 @@ const startGame = () => {
 		const newPlayerCard = sessionDeck.selectRandomCard();
 		const newDealerCard = sessionDeck.selectRandomCard();
 
-		sessionPlayer.playerCards.push(newPlayerCard);
-		sessionDealer.dealerCards.push(newDealerCard);
+		sessionPlayer.cards.push(newPlayerCard);
+		sessionDealer.cards.push(newDealerCard);
 	}
 
 	return {

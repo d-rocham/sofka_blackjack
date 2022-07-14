@@ -1,5 +1,5 @@
 import { startGame, finishGame } from "./gameplay";
-import { renderBoard, renderCards } from "../renderGame/renderGame";
+import { renderBoard, renderParticipantInfo } from "../renderGame/renderGame";
 import { checkGameStatus } from "../utils";
 
 const gameController = () => {
@@ -10,19 +10,19 @@ const gameController = () => {
 	// Render game board
 	renderBoard();
 
-	renderCards("#dealer-cards", sessionDealer.dealerCards);
-	renderCards("#player-cards", sessionPlayer.playerCards);
+	renderParticipantInfo(sessionPlayer);
+	renderParticipantInfo(sessionDealer);
 
 	// TODO: render handCount for each participant
 
 	const gameAfterFirstDeal = checkGameStatus(
-		sessionPlayer.playerCards,
-		sessionDealer.dealerCards,
+		sessionPlayer.cards,
+		sessionDealer.cards,
 		false
 	);
 
 	if (gameAfterFirstDeal.isFinished) {
-		// call finish game
+		finishGame(gameAfterFirstDeal.winner);
 
 		return;
 	}
@@ -31,10 +31,10 @@ const gameController = () => {
 	const playerStayButton = document.querySelector("#stay-button");
 
 	playerHitButton.addEventListener("click", () =>
-		sessionPlayer.hit(sessionDeck, sessionDealer.dealerCards)
+		sessionPlayer.hit(sessionDeck, sessionDealer.cards)
 	);
 	playerStayButton.addEventListener("click", () =>
-		sessionDealer.dealerTurn(sessionDeck)
+		sessionDealer.dealerTurn(sessionDeck, sessionPlayer.cards)
 	);
 };
 

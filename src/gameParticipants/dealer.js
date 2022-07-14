@@ -1,28 +1,32 @@
-import { renderCards } from "../renderGame/renderGame";
+/* eslint import/no-cycle: [0] */
+import { finishGame } from "../gameplay/gameplay";
+import { renderParticipantInfo } from "../renderGame/renderGame";
 import { checkGameStatus, getHandValue } from "../utils";
 
 const dealer = () => {
-	const dealerCards = [];
+	const cards = [];
+
+	const participantIdentifier = "dealer";
 
 	const dealerTurn = (sessionDeck, playerHand) => {
-		let currentHandValue = getHandValue(dealerCards);
+		let currentHandValue = getHandValue(cards);
 
 		while (currentHandValue < 17) {
 			const newCard = sessionDeck.selectRandomCard();
-			dealerCards.push(newCard);
+			cards.push(newCard);
 
-			currentHandValue = getHandValue(dealerCards);
-			renderCards("#dealer-cards", dealerCards);
+			currentHandValue = getHandValue(cards);
+			renderParticipantInfo({ cards, participantIdentifier });
 		}
 
 		// Once dealer hits 17 or more, game is finished and hands must be reviewed
 
-		const gameStatus = checkGameStatus(playerHand, dealerCards, true);
+		const gameStatus = checkGameStatus(playerHand, cards, true);
 
-		// TODO: call finishGame.
+		finishGame(gameStatus.winner);
 	};
 
-	return { dealerCards, dealerTurn };
+	return { cards, dealerTurn, participantIdentifier };
 };
 
 export default dealer;

@@ -1,27 +1,33 @@
-import { renderCards } from "../renderGame/renderGame";
+/* eslint import/no-cycle: [0] */
+
+import { finishGame } from "../gameplay/gameplay";
+import { renderParticipantInfo } from "../renderGame/renderGame";
 import { checkGameStatus } from "../utils";
 
 const player = () => {
-	const playerCards = [];
+	const cards = [];
+
+	const participantIdentifier = "player";
 
 	// TODO: remember to add bet
 
 	const hit = (sessionDeck, dealerHand) => {
 		const hitCard = sessionDeck.selectRandomCard();
-		playerCards.push(hitCard);
+		cards.push(hitCard);
 
-		renderCards("#player-cards", playerCards);
+		renderParticipantInfo({ cards, participantIdentifier });
 
-		const gameStatus = checkGameStatus(dealerHand, playerCards, false);
+		const gameStatus = checkGameStatus(dealerHand, cards, false);
 
 		if (gameStatus.isFinished) {
-			// call finish game
+			finishGame(gameStatus.winner);
 		}
 	};
 
 	return {
-		playerCards,
+		cards,
 		hit,
+		participantIdentifier,
 	};
 };
 
