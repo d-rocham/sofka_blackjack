@@ -13,7 +13,7 @@ const player = () => {
 		const getHandValueForHit = getHandValue(playerCards);
 
 		if (getHandValueForHit > 21) {
-			// call finishGame(playerWon)
+			// call finishGame(playerLost)
 			// TODO: how to distinguish between player won, dealer won or tie
 		}
 

@@ -1,4 +1,4 @@
-import startGame from "./startGame";
+import { startGame, finishGame } from "./gameplay";
 import { renderBoard, renderCards } from "../renderGame/renderGame";
 
 const gameController = () => {

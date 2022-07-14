@@ -22,6 +22,8 @@ const dealer = () => {
 		if (currentHandValue > 21) {
 			// Call finishGame(dealerLost)
 		}
+
+		// Check who has the highest score between dealer & player
 	};
 
 	return { dealerCards, dealerTurn };
