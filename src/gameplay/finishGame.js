@@ -1,8 +1,12 @@
-const finishGame = (winner) => {
-	console.log(winner);
+import { renderGameResults } from "../renderGame/renderGame";
 
-	// TODO: implement. finishGame should switch back the visibility on gameboard
-	// remove event listeners, display appropriate message
+const finishGame = (winner) => {
+	if (winner === "player") {
+		renderGameResults("Congratulations: YOU WON!");
+		return;
+	}
+
+	renderGameResults("Too bad. YOU LOST :(");
 };
 
 export default finishGame;
