@@ -12,8 +12,6 @@ const formatCardHand = (cards) =>
 	"".concat(...cards.map((card) => card.printCard()));
 
 const checkGameStatus = (playerHand, dealerHand, isFinished) => {
-	console.log("checkGameStatus has been called");
-	console.log(`isFinished: ${isFinished}`);
 	const checkResult = {
 		isFinished,
 		winner: null,
@@ -23,9 +21,6 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	const dealerHandValue = getHandValue(dealerHand);
 
 	// This condition is called only when the dealer's turn is over
-
-	console.log(`player hand:${playerHandValue}`);
-	console.log(`dealer hand: ${dealerHandValue}`);
 
 	if (checkResult.isFinished) {
 		if (playerHandValue > 21) {
@@ -45,7 +40,6 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	}
 
 	if (playerHandValue === 21 || dealerHandValue > 21) {
-		console.log("called player");
 		checkResult.isFinished = true;
 		checkResult.winner = "player";
 
@@ -53,7 +47,6 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	}
 
 	if (dealerHandValue === 21 || playerHandValue > 21) {
-		console.log("called dealer");
 		checkResult.isFinished = true;
 		checkResult.winner = "dealer";
 
