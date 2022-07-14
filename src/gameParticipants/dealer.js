@@ -15,6 +15,8 @@ const dealer = () => {
 			renderCards("#dealer-cards", dealerCards);
 		}
 
+		// TODO: move checks below to checkGameStatus. Add playerHand as parameter to this function
+
 		if (currentHandValue === 21) {
 			// Call finishGame(dealerWon)
 		}

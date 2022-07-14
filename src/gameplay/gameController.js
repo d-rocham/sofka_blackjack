@@ -12,6 +12,10 @@ const gameController = () => {
 	renderCards("#dealer-cards", sessionDealer.dealerCards);
 	renderCards("#player-cards", sessionPlayer.playerCards);
 
+	// TODO: render handCount for each participant
+
+	// TODO: Game can finish with the first draw. Invoke checkGameStatus first
+
 	const playerHitButton = document.querySelector("#hit-button");
 	const playerStayButton = document.querySelector("#stay-button");
 

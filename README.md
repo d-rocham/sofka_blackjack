@@ -7,7 +7,7 @@ This blackjack implementation is composed of:
 * 1 dealer
 * 1 deck of 52 cards, made with 4 suits.
 
-The rules for this game are from [this website](https://bicyclecards.com/how-to-play/blackjack/), as well as from the particular requirements asked by the mentor:
+The rules for this game are adapted from [this website](https://bicyclecards.com/how-to-play/blackjack/), as well as from the particular requirements demanded by the mentor:
 
 1. The player places an initial bet.
 2. Player receives 2 cards from the card bank.
@@ -17,7 +17,7 @@ The rules for this game are from [this website](https://bicyclecards.com/how-to-
 6. The game finishes when:
 	1. The dealer gets a hand whose value is higher than 21. **¨The player wins**.
 	2. The player gets a hand value equal to 21. **The player wins**.
-	3. The dealer has to stay,  in wich case **the winner is whohever has the closes value to 21**.
+	3. The dealer has to stay,  in wich case **the winner is whoever has the closes value to 21**.
 7. To handle the bets:
 	1. If the player wins, he earns is doubled bet + the value of the cards in his hand.
 	2. If the dealer wins, he gets the player's bet.
