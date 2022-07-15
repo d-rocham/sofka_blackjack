@@ -3,6 +3,7 @@ import {
 	renderBoard,
 	renderParticipantInfo,
 	renderInnerHTML,
+	changePlayerButtonsStatus,
 } from "../renderGame/renderGame";
 import { checkGameStatus } from "../utils";
 
@@ -34,11 +35,12 @@ const gameController = () => {
 
 	renderInnerHTML(".player-acumulated-earnings", accumulatedPrize);
 
-	// Render game board & participants
+	// Render game board, participants, enable player buttons
 	renderBoard();
 
 	renderParticipantInfo(sessionPlayer);
 	renderParticipantInfo(sessionDealer);
+	changePlayerButtonsStatus(false);
 
 	// Game may end after the first deal
 

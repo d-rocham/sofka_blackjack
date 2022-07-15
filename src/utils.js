@@ -69,6 +69,8 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 		checkResult.winner =
 			playerHandValue > dealerHandValue ? "player" : "dealer";
 
+		checkResult.sessionPrize = getHandMonetaryValue(playerHand);
+
 		return checkResult;
 	}
 

@@ -1,4 +1,7 @@
-import { renderInnerHTML } from "../renderGame/renderGame";
+import {
+	renderInnerHTML,
+	changePlayerButtonsStatus,
+} from "../renderGame/renderGame";
 
 /**
  * Finishes the game by showing a summary
@@ -25,8 +28,7 @@ const finishGame = (winner) => {
 	renderInnerHTML(".game-results", endMessage);
 
 	// Disable buttons
-	const gameButtons = document.querySelector(".player-buttons-container");
-	gameButtons.classList.add("hidden");
+	changePlayerButtonsStatus(true);
 };
 
 export default finishGame;

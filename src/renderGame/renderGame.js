@@ -5,5 +5,11 @@
 import renderBoard from "./renderBoard";
 import renderParticipantInfo from "./renderParticipantInfo";
 import renderInnerHTML from "./renderInnerHTML";
+import changePlayerButtonsStatus from "./changePlayerButtonsStatus";
 
-export { renderBoard, renderParticipantInfo, renderInnerHTML };
+export {
+	renderBoard,
+	renderParticipantInfo,
+	renderInnerHTML,
+	changePlayerButtonsStatus,
+};
