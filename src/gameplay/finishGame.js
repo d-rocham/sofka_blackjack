@@ -1,4 +1,7 @@
-import { renderGameResults } from "../renderGame/renderGame";
+import {
+	renderGameResults,
+	renderAccumulatedPrize,
+} from "../renderGame/renderGame";
 
 /**
  * Finishes the game by showing a summary
@@ -6,11 +9,23 @@ import { renderGameResults } from "../renderGame/renderGame";
  * @param {string} winner
  */
 const finishGame = (winner) => {
+	const previousAccumulatedValue =
+		localStorage.getItem("blackjack-acumulated-results") || 0;
+
+	const newAccumulaltedValue =
+		parseInt(previousAccumulatedValue, 10) + winner.sessionPrize;
+
+	console.log(winner.sessionPrize);
+
+	localStorage.setItem("blackjack-acumulated-results", newAccumulaltedValue);
+
 	// Show game summary
 	const endMessage =
-		winner === "player"
-			? "Congratulations: YOU WON!"
+		winner.winner === "player"
+			? `Congratulations: YOU WON ${winner.sessionPrize}`
 			: "Too bad. YOU LOST :(";
+
+	renderAccumulatedPrize(newAccumulaltedValue);
 
 	renderGameResults(endMessage);
 

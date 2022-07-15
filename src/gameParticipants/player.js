@@ -18,7 +18,7 @@ const player = () => {
 		const gameStatus = checkGameStatus(cards, dealerHand, false);
 
 		if (gameStatus.isFinished) {
-			finishGame(gameStatus.winner);
+			finishGame(gameStatus);
 		}
 	};
 

@@ -11,10 +11,21 @@ const getHandValue = (cards) => {
 const formatCardHand = (cards) =>
 	"".concat(...cards.map((card) => card.printCard()));
 
+const getHandMonetaryValue = (hand) => {
+	let handValue = 0;
+
+	for (const card of hand) {
+		handValue += card.cardMonetaryValue;
+	}
+
+	return handValue;
+};
+
 const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	const checkResult = {
 		isFinished,
 		winner: null,
+		sessionPrize: 0,
 	};
 
 	const playerHandValue = getHandValue(playerHand);
@@ -25,11 +36,16 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	if (checkResult.isFinished) {
 		if (playerHandValue > 21) {
 			checkResult.winner = "dealer";
+			checkResult.sessionPrize = 0;
 			return checkResult;
 		}
 
 		if (dealerHandValue > 21) {
 			checkResult.winner = "player";
+			checkResult.sessionPrize =
+				playerHandValue === 21
+					? 1000 + getHandMonetaryValue(playerHand)
+					: getHandMonetaryValue(playerHand);
 			return checkResult;
 		}
 
@@ -42,6 +58,10 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	if (playerHandValue === 21 || dealerHandValue > 21) {
 		checkResult.isFinished = true;
 		checkResult.winner = "player";
+		checkResult.sessionPrize =
+			playerHandValue === 21
+				? 1000 + getHandMonetaryValue(playerHand)
+				: getHandMonetaryValue(playerHand);
 
 		return checkResult;
 	}
@@ -49,6 +69,7 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	if (dealerHandValue === 21 || playerHandValue > 21) {
 		checkResult.isFinished = true;
 		checkResult.winner = "dealer";
+		checkResult.sessionPrize = 0;
 
 		return checkResult;
 	}
@@ -56,4 +77,4 @@ const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	return checkResult;
 };
 
-export { getHandValue, formatCardHand, checkGameStatus };
+export { getHandValue, formatCardHand, checkGameStatus, getHandMonetaryValue };

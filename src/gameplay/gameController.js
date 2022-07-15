@@ -1,5 +1,9 @@
 import { startGame, finishGame } from "./gameplay";
-import { renderBoard, renderParticipantInfo } from "../renderGame/renderGame";
+import {
+	renderBoard,
+	renderParticipantInfo,
+	renderAccumulatedPrize,
+} from "../renderGame/renderGame";
 import { checkGameStatus } from "../utils";
 
 const gameController = () => {
@@ -17,6 +21,16 @@ const gameController = () => {
 
 	const { sessionPlayer, sessionDealer, sessionDeck } = startGame();
 
+	// Retrieve past sessions accumulated prize
+
+	const accumulatedPrize = localStorage.getItem(
+		"blackjack-acumulated-results"
+	);
+
+	renderAccumulatedPrize(accumulatedPrize);
+
+	// TODO: renderAccumulatedPrize
+
 	// Render game board
 	renderBoard();
 
@@ -30,7 +44,7 @@ const gameController = () => {
 	);
 
 	if (gameAfterFirstDeal.isFinished) {
-		finishGame(gameAfterFirstDeal.winner);
+		finishGame(gameAfterFirstDeal);
 
 		return;
 	}

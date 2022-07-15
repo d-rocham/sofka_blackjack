@@ -34,7 +34,7 @@ const generateCard = (cardName, cardSuit) => {
 		cardName,
 		cardSuit,
 		cardValue: getCardValue(),
-		cardMonetaryValue: getMonetaryValue,
+		cardMonetaryValue: getMonetaryValue(),
 		printCard,
 	};
 };

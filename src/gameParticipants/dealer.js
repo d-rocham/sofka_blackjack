@@ -19,14 +19,11 @@ const dealer = () => {
 			renderParticipantInfo({ cards, participantIdentifier });
 		}
 
-		console.log("DEALER CARDS:");
-		console.log(cards);
-
 		// Once dealer hits 17 or more, game is finished and hands must be reviewed
 
 		const gameStatus = checkGameStatus(playerHand, cards, true);
 
-		finishGame(gameStatus.winner);
+		finishGame(gameStatus);
 	};
 
 	return { cards, dealerTurn, participantIdentifier };

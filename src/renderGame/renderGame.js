@@ -5,6 +5,7 @@ import renderCards from "./renderCards";
 import renderHandSum from "./renderHandSum";
 import renderParticipantInfo from "./renderParticipantInfo";
 import renderGameResults from "./renderGameResults";
+import renderAccumulatedPrize from "./renderAccumulatedPrize";
 
 export {
 	renderBoard,
@@ -12,4 +13,5 @@ export {
 	renderHandSum,
 	renderParticipantInfo,
 	renderGameResults,
+	renderAccumulatedPrize,
 };
