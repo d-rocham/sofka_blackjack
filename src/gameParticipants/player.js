@@ -9,15 +9,9 @@ const player = () => {
 
 	const participantIdentifier = "player";
 
-	// TODO: remember to add bet
-
 	const hit = (sessionDeck, dealerHand) => {
-		console.log("CLICKED");
 		const hitCard = sessionDeck.selectRandomCard();
 		cards.push(hitCard);
-
-		console.log("PLAYER CARDS:");
-		console.log(cards);
 
 		renderParticipantInfo({ cards, participantIdentifier });
 
