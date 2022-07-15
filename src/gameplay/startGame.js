@@ -3,6 +3,10 @@
 import { player, dealer } from "../gameParticipants/gameParticipants";
 import { cardBank } from "../gameElements/gameElements";
 
+/**
+ * Initializes game data structureś & performs first draw
+ * @returns {object} object including player, dealer & deck. Destructure to use
+ */
 const startGame = () => {
 	// Prior to start a game, make sure that .game-results displays nothing
 

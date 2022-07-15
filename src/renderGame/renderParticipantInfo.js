@@ -1,13 +1,19 @@
 /* eslint import/no-cycle: [0] */
 
-import { renderHandSum, renderCards } from "./renderGame";
-import { getHandValue } from "../utils";
+import { renderInnerHTML } from "./renderGame";
+import { getHandValue, formatCardHand } from "../utils";
 
 const renderParticipantInfo = (participant) => {
-	renderCards(participant.participantIdentifier, participant.cards);
+	renderInnerHTML(
+		`#${participant.participantIdentifier}-cards`,
+		formatCardHand(participant.cards)
+	);
 
 	const participantSum = getHandValue(participant.cards);
-	renderHandSum(participant.participantIdentifier, participantSum);
+	renderInnerHTML(
+		`#${participant.participantIdentifier}-sum`,
+		participantSum
+	);
 };
 
 export default renderParticipantInfo;

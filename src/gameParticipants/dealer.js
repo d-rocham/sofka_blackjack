@@ -3,6 +3,10 @@ import { finishGame } from "../gameplay/gameplay";
 import { renderParticipantInfo } from "../renderGame/renderGame";
 import { checkGameStatus, getHandValue } from "../utils";
 
+/**
+ * Factory function to build a dealer object
+ * @returns {object} a dealer object
+ */
 const dealer = () => {
 	const cards = [];
 

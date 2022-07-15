@@ -1,3 +1,8 @@
+/**
+ * Adds the accumulated value of a hand.
+ * @param {Array} cards array of `card` objects
+ * @returns {integer} total sum of hand
+ */
 const getHandValue = (cards) => {
 	let handValue = 0;
 
@@ -11,6 +16,11 @@ const getHandValue = (cards) => {
 const formatCardHand = (cards) =>
 	"".concat(...cards.map((card) => card.printCard()));
 
+/**
+ * Adds the accumulated monetary value of a hand
+ * @param {Array} hand Array of `card` objects.
+ * @returns {integer} total monetary sum of hand.
+ */
 const getHandMonetaryValue = (hand) => {
 	let handValue = 0;
 
@@ -21,6 +31,13 @@ const getHandMonetaryValue = (hand) => {
 	return handValue;
 };
 
+/**
+ * Performs checks to determine whether a play finished a game session or not.
+ * @param {Array} playerHand
+ * @param {Array} dealerHand
+ * @param {boolean} isFinished
+ * @returns {object} CheckResults, objet that consolidates the check results
+ */
 const checkGameStatus = (playerHand, dealerHand, isFinished) => {
 	const checkResult = {
 		isFinished,

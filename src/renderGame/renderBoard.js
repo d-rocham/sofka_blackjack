@@ -1,3 +1,6 @@
+/**
+ * Renders board by toggling the hidden class in the relevan node.
+ */
 const renderBoard = () => {
 	const gameBoard = document.querySelector(".board-container");
 	gameBoard.classList.remove("hidden");

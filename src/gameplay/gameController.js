@@ -2,10 +2,15 @@ import { startGame, finishGame } from "./gameplay";
 import {
 	renderBoard,
 	renderParticipantInfo,
-	renderAccumulatedPrize,
+	renderInnerHTML,
 } from "../renderGame/renderGame";
 import { checkGameStatus } from "../utils";
 
+/**
+ * Manages the game session through initializing data structures
+ * rendering the board and adding event listeners to game buttons.
+ * @returns {void}
+ */
 const gameController = () => {
 	// Replace nodes through cloning, to prevent eventListener duplicates
 	const playerHitButton = document.querySelector("#hit-button");
@@ -21,21 +26,21 @@ const gameController = () => {
 
 	const { sessionPlayer, sessionDealer, sessionDeck } = startGame();
 
-	// Retrieve past sessions accumulated prize
+	// Retrieve past sessions accumulated prize & render them
 
 	const accumulatedPrize = localStorage.getItem(
 		"blackjack-acumulated-results"
 	);
 
-	renderAccumulatedPrize(accumulatedPrize);
+	renderInnerHTML(".player-acumulated-earnings", accumulatedPrize);
 
-	// TODO: renderAccumulatedPrize
-
-	// Render game board
+	// Render game board & participants
 	renderBoard();
 
 	renderParticipantInfo(sessionPlayer);
 	renderParticipantInfo(sessionDealer);
+
+	// Game may end after the first deal
 
 	const gameAfterFirstDeal = checkGameStatus(
 		sessionPlayer.cards,

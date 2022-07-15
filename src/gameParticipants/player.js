@@ -4,6 +4,10 @@ import { finishGame } from "../gameplay/gameplay";
 import { renderParticipantInfo } from "../renderGame/renderGame";
 import { checkGameStatus } from "../utils";
 
+/**
+ * Factory function to build a dealer object
+ * @returns {object} a player object
+ */
 const player = () => {
 	const cards = [];
 
